@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_tonkotsus",
+  "info": {
+    "singularName": "menu-tonkotsu",
+    "pluralName": "menu-tonkotsus",
+    "displayName": "menu tonkotsu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
