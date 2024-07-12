@@ -376,7 +376,13 @@ export interface ApiMenuTonkotsuMenuTonkotsu extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    price: Attribute.Decimal;
+    price: Attribute.Decimal &
+      Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
     photo: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -389,6 +395,39 @@ export interface ApiMenuTonkotsuMenuTonkotsu extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::menu-tonkotsu.menu-tonkotsu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReservationReservation extends Schema.CollectionType {
+  collectionName: 'reservations';
+  info: {
+    singularName: 'reservation';
+    pluralName: 'reservations';
+    displayName: 'reservation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    date: Attribute.DateTime;
+    guests: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reservation.reservation',
       'oneToOne',
       'admin::user'
     > &
@@ -833,6 +872,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::menu-tonkotsu.menu-tonkotsu': ApiMenuTonkotsuMenuTonkotsu;
+      'api::reservation.reservation': ApiReservationReservation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
