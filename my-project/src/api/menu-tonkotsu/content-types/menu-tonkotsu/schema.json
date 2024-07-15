@@ -20,7 +20,7 @@
     },
     "price": {
       "type": "decimal",
-      "max": 2
+      "max": 12
     },
     "photo": {
       "type": "media",

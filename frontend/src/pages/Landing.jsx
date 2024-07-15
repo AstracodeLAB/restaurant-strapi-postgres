@@ -9,90 +9,67 @@ import Contact from '../components/contact.jsx';
 import Images from '../components/images.jsx';
 
 function Landing() {
-	const [showLetter,setShowLetter] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
 
-	const openLetter = () => {
-		setShowLetter(true);
-	};
+  const openSection = (section) => {
+    setActiveSection(section);
+  };
 
-	const closeLetter = () => {
-		setShowLetter(false);
-	}
+  const closeSection = () => {
+    setActiveSection(null);
+  };
 
-	const [showReservation,setShowReservation] = useState(false);
+  return (
+    <>
+      <div className="flex flex-col min-h-screen">
+        <div className='flex-grow flex flex-col md:flex-row w-full'>
+          <header className='flex flex-col w-full align-center justify-center items-center mt-3 gap-3 md:gap-8'>
+            <img className='w-1/3 rounded-full' src={Logo} alt="Logo del restaurante" />
+            <ul className="text-2xl md:text-5xl text-center flex flex-col w-full">
+              <li className="relative">
+                <button className='py-1 md:py-4' onClick={() => openSection('letter')}>
+                  Carta <FontAwesomeIcon icon={faChevronRight} size="xs" />
+                </button>
+                <hr className="absolute left-0 w-full border-gray-300" />
+                {activeSection === 'letter' && <Letter onClose={closeSection} />}
+              </li>
+              <li className="relative">
+                <button className='py-1 md:py-4' onClick={() => openSection('reservation')}>
+                  Reserva <FontAwesomeIcon icon={faChevronRight} size="xs" />
+                </button>
+                <hr className="absolute left-0 w-full border-gray-300" />
+                {activeSection === 'reservation' && <Reservation onClose={closeSection} />}
+              </li>
+              <li className="relative">
+                <button className='py-1 md:py-4' onClick={() => openSection('contact')}>
+                  Contacto <FontAwesomeIcon icon={faChevronRight} size="xs" />
+                </button>
+                <hr className="absolute left-0 w-full border-gray-300" />
+                {activeSection === 'contact' && <Contact onClose={closeSection} />}
+              </li>
+              <li className="pb-4">
+                <button className='py-1 md:py-4' onClick={() => openSection('images')}>
+                  Tonkotsu <FontAwesomeIcon icon={faChevronRight} size="xs" />
+                </button>
+                {activeSection === 'images' && <Images onClose={closeSection} />}
+              </li>
+            </ul>
+          </header>
 
-	const openReservation = () => {
-		setShowReservation(true);
-	};
-
-	const closeReservation = () => {
-		setShowReservation(false);
-	}
-
-	const [showContact,setShowContact] = useState(false);
-
-	const openContact = () => {
-		setShowContact(true);
-	};
-
-	const closeContact = () => {
-		setShowContact(false);
-	}
-
-	const [showImages,setShowImages] = useState(false);
-
-	const openImages = () => {
-		setShowImages(true);
-	};
-
-	const closeImages = () => {
-		setShowImages(false);
-	}
-
-	return (
-		<>
-			<div className= 'h-full'>
-			<div className='flex flex-row w-full '>
-				<header className='flex flex-col w-full align-center justify-center items-center gap-8' >
-					<img className='w-1/3 rounded-full ' src={Logo} alt="Logo del restaurante" />
-					<ul className="text-5xl text-center flex flex-col w-full">
-							<li className="relative ">
-								<button className='py-4' onClick={openLetter}>Carta <FontAwesomeIcon icon={faChevronRight} /></button>
-								<hr className="absolute left-0 w-full border-gray-300 " />
-								{showLetter && <Letter onClose={closeLetter} />}
-							</li>
-							<li className="relative">
-								<button className='py-4' onClick={openReservation}>Reserva <FontAwesomeIcon icon={faChevronRight} /></button>
-								<hr className="absolute left-0 w-full border-gray-300" />
-								{showReservation && <Reservation onClose={closeReservation} />}
-							</li>
-							<li className="relative">
-								<button className='py-4' onClick={openContact}>Contacto <FontAwesomeIcon icon={faChevronRight} /></button>
-								<hr className="absolute left-0 w-full border-gray-300" />
-								{showContact && <Contact onClose={closeContact} />}
-							</li>
-							<li className="pb-4">
-								<button className='py-4' onClick={openImages}>Imágenes <FontAwesomeIcon icon={faChevronRight} /></button>
-								{showImages && <Images onClose={closeImages} />}
-							</li>
-						</ul>
-				</header>
-
-				<section className='w-full '>
-					<img className='w-full' style={{ height: '90vh', objectFit: 'cover' }} src={Background} alt="imágen ambientada en el restaurante" />
-				</section>
-			</div>
-			<footer className='h-1/5 bg-gray-800 text-white flex flex-col justify-center items-center'>
-				<ul >
-					<li>Política de cookies</li>
-					<li>Aviso de cookies</li>
-					<li>Aviso de privacidad</li>
-					
-				</ul>
-			</footer>
-			</div>
-		</>
-	);
+          <section className='w-full'>
+            <img className='w-full' style={{ height: '90vh', objectFit: 'cover' }} src={Background} alt="imágen ambientada en el restaurante" />
+          </section>
+        </div>
+      </div>
+      <footer className='fixed bottom-0 w-full bg-gray-800 text-white flex flex-col justify-center items-center py-4 z-50'>
+        <ul>
+          <li>Política de cookies</li>
+          <li>Aviso de cookies</li>
+          <li>Aviso de privacidad</li>
+        </ul>
+      </footer>
+    </>
+  );
 }
 
 export default Landing;
