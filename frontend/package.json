@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+    "preview": "vite preview",
+    "githubpages": "rm -rf dist && rm -rf docs && npm run build && mv dist docs && touch docs/.nojekyll && git add . && git commit -m \"Publish in GitHub Pages\" && git push"
+},
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
