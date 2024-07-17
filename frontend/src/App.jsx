@@ -10,7 +10,7 @@ function App() {
      
       <BrowserRouter>
 				<Routes>
-					<Route path='/' element={ <Landing />} />
+					<Route path='/restaurant-strapi-postgres' element={ <Landing />} />
 				</Routes>
 			</BrowserRouter>
     </>
