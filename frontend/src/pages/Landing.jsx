@@ -23,9 +23,9 @@ function Landing() {
     <>
       <div className="flex flex-col min-h-screen">
         <div className='flex-grow flex flex-col md:flex-row w-full'>
-          <header className='flex flex-col w-full align-center justify-center items-center mt-3 gap-3 md:gap-8'>
+          <header className='flex flex-col w-full align-center justify-center items-center mt-3'>
             <img className='w-1/3 rounded-full' src={Logo} alt="Logo del restaurante" />
-            <ul className="grid text-2xl grid-cols-2 md:gap-4 md:text-5xl text-center md:flex md:flex-col w-full">
+            <ul className="grid text-2xl grid-cols-2 md:gap-2 md:text-3xl text-center md:flex md:flex-col w-full">
               <li className="relative w-full md:w-full">
                 <button className='py-1 md:py-4' onClick={() => openSection('letter')}>
                   Carta <FontAwesomeIcon icon={faChevronRight} size="xs" />
