@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "githubpages": "rm -rf docs && npm run build && mv dist docs && git add docs/* && git commit -m \"Publish in GitHub Pages\" && git push"
+    "build": "vite build"
+     
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
