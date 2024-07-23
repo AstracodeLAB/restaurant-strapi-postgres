@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/restaurant-strapi-postgres/',
+  base: '/restaurant-strapi-postgres/', // Asegúrate de que este valor coincida con el subdirectorio en el que está alojado tu sitio
   build: {
-    outDir: 'dist', // Esta es la configuración predeterminada
-    // otras configuraciones de build
+    outDir: 'dist',
   },
-
+  server: {
+    open: true,
+  },
 })
