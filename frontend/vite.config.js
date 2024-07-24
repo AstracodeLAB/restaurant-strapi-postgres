@@ -4,7 +4,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/restaurant-strapi-postgres/frontend/', 
-  build: {
-    outDir: 'dist',
-  },
+  
 })
