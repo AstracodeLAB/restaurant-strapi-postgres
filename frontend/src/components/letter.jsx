@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { API_URL } from '../config.js'; // Asegúrate de que la ruta es correcta
+import { API_URL, API_TOKEN } from '../config.js'; // Asegúrate de que la ruta es correcta
 
 function Letter({ onClose }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/menu-tonkotsus?populate=*`) // Asegúrate de que esta ruta es correcta
+    fetch(`${API_URL}/api/menu-tonkotsus?populate=*`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${API_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
+    }) // Asegúrate de que esta ruta es correcta
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
