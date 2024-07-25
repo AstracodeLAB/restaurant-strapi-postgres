@@ -4,9 +4,9 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:3000', 'https://restaurant-strapi-postgres.onrender.com'],
-      headers: '*', // Permite todos los encabezados
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Permite todos los métodos
+      origin: ['http://localhost:3000', 'https://restaurant-strapi-postgres.onrender.com', 'http://172.18.176.1:3000'],
+      headers: ['Content-Type', 'Authorization'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     },
   },
   'strapi::logger',

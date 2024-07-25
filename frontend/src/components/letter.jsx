@@ -7,7 +7,7 @@ function Letter({ onClose }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/menu-tonkotsus?populate=*`, {
+    fetch(`${API_URL}/api/menu-tonkotsus?populate=*` , {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${API_TOKEN}`,
