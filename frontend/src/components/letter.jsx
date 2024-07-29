@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { API_URL, API_TOKEN } from '../config.js'; // Asegúrate de que la ruta es correcta
+import { API_URL, API_TOKEN } from '../config.js'; 
 
 function Letter({ onClose }) {
   const [data, setData] = useState([]);
@@ -13,7 +13,7 @@ function Letter({ onClose }) {
         'Authorization': `Bearer ${API_TOKEN}`,
         'Content-Type': 'application/json'
       }
-    }) // Asegúrate de que esta ruta es correcta
+    }) 
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
