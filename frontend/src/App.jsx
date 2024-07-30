@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
 
-const basename = process.env.NODE_ENV === 'production' ? '/restaurant-strapi-postgres/frontend' : '/';
+
 
 function App() {
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename="/restaurant-strapi-postgres" >
       <Routes>
         <Route path="/" element={<Landing />} />
       </Routes>
