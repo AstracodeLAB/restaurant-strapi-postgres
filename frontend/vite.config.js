@@ -9,7 +9,7 @@ config({ path: envFilePath });
 
 export default defineConfig({
   plugins: [react()],
-  base: '/restaurant-strapi-postgres/frontend/',
+  base: '/',
   server: {
     host: '0.0.0.0', 
     port: 3000, 
