@@ -71,7 +71,7 @@ console.log('API_TOKEN:', import.meta.env.VITE_API_TOKEN);
       </div>
       <footer className='fixed bottom-0 w-full bg-gray-800 text-white flex flex-col md:flex-row justify-center items-center py-2 md:py-4 z-50 text-xs '>
         <ul>
-          <li>Política de cookies</li>
+          <li> Política de cookies</li>
           <li>Aviso de cookies</li>
           <li>Aviso de privacidad</li>
         </ul>
