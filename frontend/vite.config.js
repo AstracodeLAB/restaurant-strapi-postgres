@@ -16,7 +16,5 @@ export default defineConfig({
     host: '0.0.0.0', // Asegúrate de que Vite preview escuche en todas las interfaces de red
     port: 3000, // El puerto debe coincidir con el servidor
   },
-  define: {
-    'process.env': process.env
-  }
+  
 });
