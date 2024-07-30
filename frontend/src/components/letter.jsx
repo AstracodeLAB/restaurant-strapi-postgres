@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { API_URL, API_TOKEN } from '../config.js'; 
+import { API_URL } from '../config.js'; 
 
 function Letter({ onClose }) {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ function Letter({ onClose }) {
     fetch(`${API_URL}/api/menu-tonkotsus?populate=*` , {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${API_TOKEN}`,
+        
         'Content-Type': 'application/json'
       }
     }) 

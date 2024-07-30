@@ -1,15 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { config } from 'dotenv';
+
 //import { resolve } from 'path';
 
 // Cargar variables de entorno desde los archivos secretos
-const envFilePath = process.env.NODE_ENV === 'production' ? '/etc/secrets/production.env' : '/etc/secrets/development.env';
-config({ path: envFilePath });
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/restaurant-strapi-postgres/frontend/' : '/',
   server: {
     host: '0.0.0.0', 
     port: 3000, 
