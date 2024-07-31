@@ -10,8 +10,8 @@ function Letter({ onClose }) {
     fetch(`${API_URL}/api/menu-tonkotsus?populate=*` , {
       method: 'GET',
       headers: {
-        
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_TOKEN}`
       }
     }) 
       .then(response => {

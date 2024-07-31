@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { API_URL } from '../config.js'; // Asegúrate de que la ruta es correcta
+import { API_URL, API_TOKEN } from '../config.js'; // Asegúrate de que la ruta es correcta
 
 function Reservation({ onClose }) {
   const [name, setName] = useState('');
@@ -19,6 +19,7 @@ function Reservation({ onClose }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_TOKEN}`
       },
       body: JSON.stringify({
         data: {
