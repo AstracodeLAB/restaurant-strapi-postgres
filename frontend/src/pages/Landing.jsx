@@ -19,9 +19,6 @@ function Landing() {
     setActiveSection(null);
   };
 
-  console.log('API_URL:', import.meta.env.VITE_API_URL);
-console.log('API_TOKEN:', import.meta.env.VITE_API_TOKEN);
-
   return (
     <>
       <div className="flex flex-col min-h-screen">

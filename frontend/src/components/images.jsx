@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL,API_TOKEN  } from '../config.js'; 
 
 function Images({ onClose }) {
 	const [data, setData] = useState([]);
@@ -21,7 +20,7 @@ function Images({ onClose }) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 				const result = await response.json();
-				console.log('Fetched data:', result);
+
 				if (result.data) {
 					setData(result.data);
 				} else {
