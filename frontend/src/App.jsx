@@ -5,7 +5,7 @@ import Landing from './pages/Landing';
 
 function App() {
   return (
-    <BrowserRouter basename="/restaurant-strapi-postgres" >
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<Landing />} />
       </Routes>
