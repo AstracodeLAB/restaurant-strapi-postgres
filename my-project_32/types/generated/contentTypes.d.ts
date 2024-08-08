@@ -362,40 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiMenuTonkotsuMenuTonkotsu extends Schema.CollectionType {
-  collectionName: 'menu_tonkotsus';
-  info: {
-    singularName: 'menu-tonkotsu';
-    pluralName: 'menu-tonkotsus';
-    displayName: 'menu-tonkotsu';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    price: Attribute.Decimal;
-    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::menu-tonkotsu.menu-tonkotsu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::menu-tonkotsu.menu-tonkotsu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -822,6 +788,110 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiGaleriaGaleria extends Schema.CollectionType {
+  collectionName: 'galerias';
+  info: {
+    singularName: 'galeria';
+    pluralName: 'galerias';
+    displayName: 'Galeria';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::galeria.galeria',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::galeria.galeria',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuTonkotsuMenuTonkotsu extends Schema.CollectionType {
+  collectionName: 'menu_tonkotsus';
+  info: {
+    singularName: 'menu-tonkotsu';
+    pluralName: 'menu-tonkotsus';
+    displayName: 'menu tonkotsu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    price: Attribute.Decimal &
+      Attribute.SetMinMax<
+        {
+          max: 12;
+        },
+        number
+      >;
+    photo: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-tonkotsu.menu-tonkotsu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-tonkotsu.menu-tonkotsu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReservationReservation extends Schema.CollectionType {
+  collectionName: 'reservations';
+  info: {
+    singularName: 'reservation';
+    pluralName: 'reservations';
+    displayName: 'reservation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    date: Attribute.DateTime;
+    guests: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::reservation.reservation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -832,7 +902,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::menu-tonkotsu.menu-tonkotsu': ApiMenuTonkotsuMenuTonkotsu;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -841,6 +910,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::galeria.galeria': ApiGaleriaGaleria;
+      'api::menu-tonkotsu.menu-tonkotsu': ApiMenuTonkotsuMenuTonkotsu;
+      'api::reservation.reservation': ApiReservationReservation;
     }
   }
 }

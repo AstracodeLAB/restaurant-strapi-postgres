@@ -1,19 +1,9 @@
 module.exports = [
+  'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  {
-    name: 'strapi::cors',
-    config: {
-      origin: [
-        'http://localhost:3000',
-        'https://restaurant-frontend-gemy.onrender.com',
-        'https://my-backend-lm14.onrender.com'
-      ],
-      headers: '*',
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    },
-  },
-  'strapi::logger',
+  'strapi::cors',
+  'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
   'strapi::session',

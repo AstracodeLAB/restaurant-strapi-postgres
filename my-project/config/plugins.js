@@ -1,9 +1,13 @@
-module.exports = {
-   
-  
-    'users-permissions': {
-      config: {
-        jwtSecret: process.env.JWT_SECRET || 'hiz/GiKMQCNBaGgdTerc9Q==', // Reemplaza 'your-secret-key' con el secreto generado
-      },
-    },
-  };
+// export default ({ env }) => ({
+//   upload: {
+//     config: {
+//       provider: "strapi-provider-upload-supabase",
+//       providerOptions: {
+//         apiUrl: env("SUPABASE_API_URL"),
+//         apiKey: env("SUPABASE_API_KEY"),
+//         bucket: env("SUPABASE_BUCKET"),
+//         directory: env("SUPABASE_DIRECTORY"),
+//       },
+//     },
+//   },
+// });

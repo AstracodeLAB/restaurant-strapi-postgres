@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "build_prod": "vite build -m prod",
-    "start": "vite preview --host 0.0.0.0 --port $PORT",
+    "start": "vite preview --host 0.0.0.0 --port 10000",
     "githubpages": "rm -rf dist && rm -rf docs && npm run build_prod && mv dist docs && git add docs/* && git commit -m \"Publish in GitHub Pages\" && git push"
   },
   "dependencies": {
