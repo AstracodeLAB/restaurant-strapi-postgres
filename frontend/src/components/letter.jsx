@@ -75,7 +75,7 @@ function Letter({ onClose }) {
 									/>
 								</section>
 							</div>
-					  ))
+				))
 					: ''}
 				<button
 					className='mt-4 py-2 px-4 bg-gray-800 text-white rounded hover:bg-gray-700 text-base md:text-xl'
