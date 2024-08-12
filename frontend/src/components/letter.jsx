@@ -70,9 +70,13 @@ function Letter({ onClose }) {
 										<p className='text-xl text-right mt-1'>Precio: {item.attributes.price}€</p>
 									</article>
 									<img
-										className='w-[20%] h-[20%] md:w-32 mb-4'
-										src={`${API_URL}${item.attributes.photo.data.attributes.url}`}
-									/>
+  className='w-[20%] h-[20%] md:w-32 mb-4'
+  src={
+    item.attributes.photo.data.attributes.url.startsWith('http')
+      ? item.attributes.photo.data.attributes.url
+      : `${API_URL}${item.attributes.photo.data.attributes.url}`
+  }
+/>
 								</section>
 							</div>
 				))
