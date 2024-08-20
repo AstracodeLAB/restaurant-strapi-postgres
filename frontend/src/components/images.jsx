@@ -5,35 +5,41 @@ import { API_URL,API_TOKEN  } from '../config.js';
 function Images({ onClose }) {
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch(`${API_URL}/api/galerias?populate=*`, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${API_TOKEN}`,
-					},
-				});
+		console.log('fetching');
+		setLoading(true);
+		fetch(`${API_URL}/api/galerias?populate=*`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${API_TOKEN}`,
+			},
+		})
+			.then((response) => {
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
-				const result = await response.json();
-
-				if (result.data) {
-					setData(result.data);
+				return response.json();
+			})
+			.then((data) => {
+				if (data.data) {
+					setData(data.data);
 				} else {
 					throw new Error('Data format is incorrect');
 				}
-			} catch (error) {
+			})
+			.catch((error) => {
 				console.error('Error fetching data:', error);
 				setError(error.message);
-			}
-		};
-
-		fetchData();
+			})
+			.finally(() => {
+				setLoading(false);
+				console.log('not loading');
+			});
 	}, []);
+
 
 	if (error) {
 		return <div>Error: {error}</div>;
@@ -51,18 +57,22 @@ function Images({ onClose }) {
 						X
 					</button>
 				</section>
+				<div> {loading && <div>Cargando...</div>}</div>
 				{Array.isArray(data) && data.length > 0 ? (
-					data.map((item) => (
-						<div key={item.id} className='mb-8'>
-							<img
-								src={`${API_URL}${item.attributes.img.data[0].attributes.url}`}
-								//alt={item.attributes.name}
-							/>
-						</div>
-					))
-				) : (
-					<p>No hay datos disponibles.</p>
-				)}
+    data.map((item) => (
+        <div key={item.id} className='mb-8'>
+            {item.attributes.img.data && item.attributes.img.data.length > 0 && (
+                <img
+                    src={item.attributes.img.data[0].attributes.formats.large.url}
+                    alt={item.attributes.img.data[0].attributes.name || `Image ${item.id}`}
+                    className='w-full h-auto mb-4'
+                />
+            )}
+        </div>
+    ))
+) : (
+    <p></p>
+)}
 				<button className='mt-4 py-2 px-4 bg-gray-800 text-white rounded hover:bg-gray-700 text-xl' onClick={onClose}>
 					Cerrar
 				</button>
