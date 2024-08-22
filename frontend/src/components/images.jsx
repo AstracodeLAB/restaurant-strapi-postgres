@@ -51,7 +51,7 @@ function Images({ onClose }) {
 				<section className='flex justify-between align-center'>
 					<h2 className='flex text-2xl md:text-3xl'>TONKOTSU</h2>
 					<button
-						className='my-2 py-0 md:py-2 px-2 md:px-4 bg-gray-800 text-white rounded hover:bg-gray-700 text-base md:text-xl'
+						className='my-2 py-0 md:py-2 px-2 md:px-4 bg-gray-800 text-white rounded cursor-pointer hover:bg-rose-700 text-base md:text-xl'
 						onClick={onClose}
 					>
 						X
@@ -73,7 +73,7 @@ function Images({ onClose }) {
 ) : (
     <p></p>
 )}
-				<button className='mt-4 py-2 px-4 bg-gray-800 text-white rounded hover:bg-gray-700 text-xl' onClick={onClose}>
+				<button className='mt-4 py-2 px-4 bg-gray-800 text-white rounded cursor-pointer hover:bg-rose-700 text-xl' onClick={onClose}>
 					Cerrar
 				</button>
 			</div>
