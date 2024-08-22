@@ -46,7 +46,7 @@ function Images({ onClose }) {
 	}
 
 	return (
-		<div className='fixed bottom-11 md:top-0 right-0 md:w-1/2 h-[60%] md:h-full flex items-center bg-gray-900 bg-opacity-50 z-50 justify-center'>
+		<div className='fixed mt-60 md:mt-0 bottom-20 top-0 left-1/2 transform -translate-x-1/2 md:left-auto md:right-0 md:transform-none w-full md:w-1/2 h-[60%] md:h-full flex items-center bg-gray-900 bg-opacity-50 z-50 justify-center'>
 			<div className='bg-white p-8 rounded-lg shadow-lg mx-4 max-h-[75%] overflow-y-auto max-w-xl mb-6'>
 				<section className='flex justify-between align-center'>
 					<h2 className='flex text-2xl md:text-3xl'>TONKOTSU</h2>

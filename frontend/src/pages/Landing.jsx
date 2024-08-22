@@ -23,7 +23,7 @@ function Landing() {
     <>
       <div className="flex flex-col min-h-screen">
         <div className='flex-grow flex flex-col md:flex-row w-full'>
-          <header className='flex flex-col w-full align-center justify-center items-center mt-3 '>
+          <header className='flex flex-col w-full align-center justify-start items-center mt-8'>
             <img className='w-1/3 rounded-full' src={Logo} alt="Logo del restaurante" />
             <ul className="grid text-2xl grid-cols-2 md:leading-0 md:text-3xl text-center md:flex md:flex-col w-full ">
               <li className="relative w-full md:w-full">
